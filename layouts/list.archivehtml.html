@@ -1,0 +1,41 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<body>
+<div id="container" class="archives-page h-feed">
+	<div class="divided">
+		<h1 class="page-title">Archive</h1>
+	</div>
+	{{ partial "search.html" . }}
+	<h1 class="content-title">Categories</h1>
+	<section id="main" class="outer">
+		{{ $list := ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+		{{ if gt (len $list) 0 }}
+			<div class="archive_categories">
+				{{ range $list }}
+					<p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+				{{ end }}
+			</div>
+		{{ end }}
+		<h1 class="content-title divided">All Posts</h1>
+		<div class="archive_posts">
+			{{ $list := (where .Site.Pages "Type" "post") }}
+			{{ range $list }}
+				<p class="h-entry" style="padding-bottom: 5px;">
+					<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</span></a>
+					{{ if .Title }}
+						<span class="p-name">: <b>{{ .Title }}</b></span> 
+					{{ else }}
+						<span class="truncated">: {{ .Summary | truncate 100 }}</span>
+					{{ end }}
+				</p>
+			{{ end }}
+		</div>
+	</section>
+</div>
+{{ partial "footer.html" . }}
+{{ partial "custom_footer.html" . }}
+{{ range .Site.Params.plugins_js }}
+	<script src="{{ . }}"></script>
+{{ end }}
+</body>
+</html>

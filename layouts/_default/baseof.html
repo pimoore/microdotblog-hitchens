@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+	{{ partial "head.html" . }}
+	{{ partial "header.html" . }}
+	<body>
+		<div class="container">
+			{{ block "main" . }}{{ end }}
+		</div>
+		{{ partial "footer.html" . }}
+		{{ partial "custom_footer.html" . }}
+		{{ range .Site.Params.plugins_js }}
+			<script src="{{ . }}"></script>
+		{{ end }}
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<article class="post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting" id="main" role="article" aria-label="Content">
+	{{ if .Title }}
+		<div class="divided">
+			<h1 class="post-title">
+							<a class="archive-article-title u-url" href="{{ .RelPermalink }}">{{ .Title }}</a>
+			</h1>
+		</div>
+		{{ $stringToCheck := .Content }}
+		{{ $results := substr $stringToCheck 0 30 }}
+		{{ if in $results "--excerpt--" }}
+			<div class="excerpt">
+				<p>{{ .Summary }}</p>
+			</div>
+			<div class="continue">
+				<p><a href="{{ .Permalink }}">Continue reading →</a></p>
+			</div>
+		{{ else if .Truncated }}
+			<p>{{ .Summary }}</p>
+			<div class="continue">
+				<p><a href="{{ .Permalink }}">Continue reading →</a></p>
+			</div>
+		{{ else }}
+			<div class="post-content e-content" itemprop="articleBody">
+				{{ .Content }}
+			</div>
+		{{ end }}
+	{{ else }}
+		<div class="post-content e-content" itemprop="articleBody">
+			{{ .Content }}
+		</div>
+	{{ end }}
+	<div class="post-meta">
+		<div class="article-post-date">
+			<time class="dt-published" datetime='{{ .Date.Format "2006-01-02T15:04:05.000-07:00" }}' itemprop="datePublished">
+				<a class="permalink u-url" href="{{ .RelPermalink }}">{{ .Date.Format "Jan 2, 2006" }}</a>
+			</time>
+		</div>
+	</div>
+</article>

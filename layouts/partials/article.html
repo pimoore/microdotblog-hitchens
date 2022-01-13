@@ -1,0 +1,57 @@
+<article class="post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting" id="main" role="article" aria-label="Content" }}>
+	{{ if .Title }}
+		<div class="divided">
+			<h1 class="post-title p-name" itemprop="name headline">
+				{{ .Title }}
+			</h1>
+		</div>
+		{{ $stringToCheck := .Content }}
+		{{ $results := substr $stringToCheck 0 30 }}
+		{{ if in $results "--excerpt--" }}
+			<div class="excerpt">
+				<p>{{ .Summary }}</p>
+			</div>
+			<div id="has-excerpt" class="post-content e-content" itemprop="articleBody">
+				{{ .Content }}
+			</div>
+		{{ else }}
+			<div id="longform" class="post-content e-content" itemprop="articleBody">
+				{{ .Content }}
+			</div>
+		{{ end }}
+	{{ else }}
+		<div class="post-content e-content">
+			{{ .Content }}
+		</div>
+	{{ end }}
+	<div class="email-reply">
+		{{ if .Title }}
+			<a class="reply" href="mailto:{{ .Site.Params.mailto }}?subject=Reply%20to%20{{ .Title }}">Reply by email</a>
+		{{ else }}
+			<a class="reply" href="mailto:{{ .Site.Params.mailto }}?subject=Reply%20to%20{{ .Permalink | safeURL }}">Reply by email</a>
+		{{ end }}
+	</div>
+	<div class="post-meta">
+		<div class="article-post-date"><time class="dt-published" datetime='{{ .Date.Format "2006-01-02T15:04:05.000-07:00" }}' itemprop="datePublished">{{ .Date.Format "Jan 2, 2006" }}</time></div>
+		<div id="permalink"><a class="permalink u-url" href="{{ .RelPermalink }}">[Permalink]</a></div>
+			{{ $Site := .Site }}
+			{{ if .Params.categories }}
+				<div class="cat-list">
+					<span class="catlist">Posted in: </span>
+					<span class="post-categories">
+						<span class="article-category">
+							{{ range $i, $e := .Params.categories }}
+								{{ if gt $i 0 }}
+									<span>•</span>
+								{{ end }}
+								<a class="article-category-link" href="{{ $Site.BaseURL }}/categories/{{ $e | urlize }}">{{ $e }}</a>
+							{{ end }}
+						</span>
+					</span>
+				</div>
+			{{ end }}
+		</div>
+</article>
+{{ if .Site.Params.include_conversation }}
+	<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+{{ end }}

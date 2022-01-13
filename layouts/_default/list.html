@@ -1,0 +1,23 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<body>
+	<div class="content-page outer">
+			<div class="archive-category-wrap divided">
+				<h1 class="page-title archive-category">Posts in: {{ .Title }}</h1>
+			</div>
+	</div>
+	<div class="content list h-feed">
+		<!--<div class="content-page archives">-->
+			{{ range .Paginator.Pages }}
+				{{ partial "li.html" . }}
+			{{ end }}
+		<!--</div>-->
+	</div>
+	{{ partial "pagination.html" . }}
+	{{ partial "footer.html" . }}
+	{{ partial "custom_footer.html" . }}
+	{{ range .Site.Params.plugins_js }}
+		<script src="{{ . }}"></script>
+	{{ end }}
+</body>
+</html>

@@ -1,0 +1,11 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+<body>
+	{{ partial "article.html" . }}
+	{{ partial "footer.html" . }}
+	{{ partial "custom_footer.html" . }}
+	{{ range .Site.Params.plugins_js }}
+		<script src="{{ . }}"></script>
+	{{ end }}
+</body>
+</html>

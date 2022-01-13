@@ -1,0 +1,16 @@
+<header id="header-inner" class="site-masthead inner">
+	<div class="menu">	
+		<nav id="main-nav" class="site-navigation" role="navigation">
+			<ul>
+				<li><a class="main-nav-link" href="{{ .Site.BaseURL }}">Home</a></li>
+				{{ range .Site.Menus.main }}
+					<li><a class="main-nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
+				{{ end }}
+				{{ if .Site.Params.onthisday }}
+					<li><a class="main-nav-link" href="{{ "on-this-day" | absURL }}">On This Day</a></li>
+				{{ end }}
+				<li><a class="main-nav-link" href="{{ "feed.xml" | absURL }}">RSS</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>

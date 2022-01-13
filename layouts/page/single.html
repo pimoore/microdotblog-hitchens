@@ -1,0 +1,19 @@
+{{ define "main" }}
+	{{ if in .Title "On This Day" }}
+		<div class="content-page divided">
+			<h1 class="page-title">{{ .Title }}</h1>
+		</div>
+		<section>
+			{{ .Content }}
+		</section>
+	{{ else }}
+		<div class="content-page">
+			<div class="divided">
+				<h1 class="page-title">{{ .Title }}</h1>
+			</div>
+			<section>
+				{{ .Content }}
+			</section>
+		</div>
+	{{ end }}
+{{ end }}
