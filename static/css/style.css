@@ -656,11 +656,25 @@ a:link::-moz-selection {
 
 /* Microblog conversation styling */
 
+.microblog_conversation::before {
+	content: "Micro.blog Conversation";
+	color: var(--body-text);
+	padding-bottom: 1em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 2em;
+	
+}
+
 .microblog_conversation {
 	margin-top: 50px;
 	padding-top: 20px;
 	border-top: 1px solid var(--body-text);
-	max-width: 60rem
+	max-width: 60rem;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .microblog_post {
@@ -673,6 +687,7 @@ a:link::-moz-selection {
 img.microblog_avatar {
 	max-height: 60px !important;
 	max-width: 60px !important;
+	margin: 0;
 	height: auto;
 	width: auto;
 	border-radius: 10px !important;
@@ -681,9 +696,10 @@ img.microblog_avatar {
 }
 
 .microblog_fullname {
-	padding-left: 1rem;
-	padding-top: 15px;
-	position: absolute;
+	padding-left: 5rem;
+	padding-top: 0;
+	position: relative;
+	top: -45px;
 }
 
 .microblog_time {
@@ -695,18 +711,6 @@ img.microblog_avatar {
 .microblog_time a {
 	color: var(--body-text);
 	text-decoration: none;
-}
-
-.microblog_post a:link, .tufte-underline, .hover-tufte-underline:hover {
-    text-decoration: none;
-    background: -webkit-linear-gradient(var(--article-bg), var(--article-bg)), -webkit-linear-gradient(var(--article-bg), var(--article-bg)), -webkit-linear-gradient(currentColor, currentColor);
-    background: linear-gradient(var(--article-bg), var(--article-bg)), linear-gradient(var(--article-bg), var(--article-bg)), linear-gradient(currentColor, currentColor);
-    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
-    background-repeat: no-repeat, no-repeat, repeat-x;
-    text-shadow: 0.03em 0 var(--article-bg), -0.03em 0 var(--article-bg), 0 0.03em var(--article-bg), 0 -0.03em var(--article-bg), 0.06em 0 var(--article-bg), -0.06em 0 var(--article-bg), 0.09em 0 var(--article-bg), -0.09em 0 var(--article-bg), 0.12em 0 var(--article-bg), -0.12em 0 var(--article-bg), 0.15em 0 var(--article-bg), -0.15em 0 var(--article-bg);
-    background-position: 0% 93%, 100% 93%, 0% 93%;
 }
 
 /* Code sections */

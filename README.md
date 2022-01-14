@@ -107,7 +107,7 @@
 	
 ## Installing the theme
 	
-_Hitchens_ is available as a full plugin on Micro.blog.  Before installing _Tufte_ be sure to remove any custom CSS, other theme plugins, and set your template to blank.  Then save the changes, after which you can install the plugin for this theme.  If things aren't working or displaying properly, you may have to remove **all plugins** first, save the changes and install _Tufte_, then add back the other plugins.  Once the theme is successfully installed, you can configure the subtitle and mailto parameters as explained below:
+_Hitchens_ is available as a full plugin on Micro.blog.  Before installing _Hitchens_ be sure to remove any custom CSS, other theme plugins, and set your template to blank.  Then save the changes, after which you can install the plugin for this theme.  If things aren't working or displaying properly, you may have to remove **all plugins** first, save the changes and install _Hitchens_, then add back the other plugins.  Once the theme is successfully installed, you can configure the subtitle and mailto parameters as explained below:
 	
 ### Changing the "subtitle" and "mailto" parameters in config.json
 	
@@ -154,4 +154,4 @@ Pete Moore
 
 ## License
 
-Licensed under the MIT License. See the [LICENSE](https://github.com/pimoore/theme-tufte/blob/main/LICENSE.md) file for more details.
+Licensed under the MIT License. See the [LICENSE](https://github.com/pimoore/microdotblog-hitchens/blob/main/LICENSE.md) file for more details.
