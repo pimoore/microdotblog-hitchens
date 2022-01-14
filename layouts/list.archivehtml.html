@@ -1,6 +1,6 @@
 {{ partial "head.html" . }}
-{{ partial "header.html" . }}
 <body>
+{{ partial "header.html" . }}
 <div id="container" class="archives-page h-feed">
 	<div class="divided">
 		<h1 class="page-title">Archive</h1>
@@ -23,7 +23,7 @@
 				<p class="h-entry" style="padding-bottom: 5px;">
 					<a href="{{ .Permalink }}" class="u-url"><span class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">{{ .Date.Format "2006-01-02" }}</span></a>
 					{{ if .Title }}
-						<span class="p-name">: <b>{{ .Title }}</b></span> 
+						<span class="p-name">: <b>{{ .Title }}</b></span>
 					{{ else }}
 						<span class="truncated">: {{ .Summary | truncate 100 }}</span>
 					{{ end }}
