@@ -10,7 +10,7 @@
       Recent Posts
   	</h1>
 	<div class="content list h-feed">
-		{{ $paginator := .Paginate (where .Pages "Type" "post") }}
+		{{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
 		{{ range $paginator.Pages }}
 			{{ partial "li.html" . }}
 		{{ end }}
