@@ -14,6 +14,7 @@
 	* asides
 	* figures
 	* divider SVG elements inlined within the CSS itself
+	* poetry
 * index page includes the 10 most recent posts, with a link below to view the archive
 * inline search boxes on both the bottom of the index page, and in the archive
 * **there are no shortcodes in this theme**
@@ -98,6 +99,12 @@
 
 * these are controlled by an inline SVG coded within the CSS elements themselves
 * they don't rely on an external SVG file to load, and the colour is also variable driven to match the main body text colour (they will change automatically if you use a different text colour)
+
+
+### Poetry
+
+* poetry posts need the dropcaps to be disabled, otherwise they mess with the alignment
+* adding a custom ```<!--poetry-->``` comment before the poetry post content will ensure the div element receives a different ID and will **not** have dropcaps
 
 ### Search
 

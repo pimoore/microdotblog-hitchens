@@ -14,6 +14,10 @@
 			<div id="has-excerpt" class="post-content e-content" itemprop="articleBody">
 				{{ .Content }}
 			</div>
+		{{ else if in $results "--poetry--"}}
+			<div id="poetry" class="post-content e-content" itemprop="articleBody">
+				{{ .Content }}
+			</div>
 		{{ else }}
 			<div id="longform" class="post-content e-content" itemprop="articleBody">
 				{{ .Content }}
