@@ -1,16 +1,16 @@
 {{ partial "head.html" . }}
-{{ partial "header.html" . }}
 <body>
+	{{ partial "header.html" . }}
 	<div class="site-masthead">
 	<h1>{{ .Site.Title }}</h1>
 	<h2>{{ .Site.Params.subtitle }}</h2>
 	</div>
-<main class="home" id="main" role="main" aria-label="Content">
+<main class="home" id="main" aria-label="Content">
 	<h1 class="content-title divided">
       Recent Posts
   	</h1>
 	<div class="content list h-feed">
-		{{ $paginator := .Paginate (where .Pages "Type" "post") }}
+		{{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
 		{{ range $paginator.Pages }}
 			{{ partial "li.html" . }}
 		{{ end }}
