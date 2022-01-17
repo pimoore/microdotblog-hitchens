@@ -17,6 +17,7 @@
 	* poetry
 * index page includes the 10 most recent posts, with a link below to view the archive
 * inline search boxes on both the bottom of the index page, and in the archive
+* built-in support for [_Conversation on Micro.blog_](https://github.com/svendahlstrand/plugin-conversation-on-mb) plugin, by @sod
 * **there are no shortcodes in this theme**
 * no dark mode available as of yet, debating if this theme would work well with one
 	
@@ -106,11 +107,20 @@
 * poetry posts need the dropcaps to be disabled, otherwise they mess with the alignment
 * adding a custom ```<!--poetry-->``` comment before the poetry post content will ensure the div element receives a different ID and will **not** have dropcaps
 
+### Manual Dropcaps
+* added manual dropcap class
+* if you want to start a post with an image(s)--say a featured image--the normal dropcaps won't work
+* to target the _first_ paragraph after the image(s) with a dropcap, type the following: ```<p class="dropcap">first paragraph goes here</p>```
+
 ### Search
 
 * the theme uses a partial based on the code from the Micro.blog search plugin, without having to have the plugin actually installed
 * styling is set to match that of the original Hitchens theme, with results that will drop down
 * available near the bottom of the index and top of the archive
+
+### Conversation on Micro.blog
+* theme includes built-in support for [_Conversation on Micro.blog_](https://github.com/svendahlstrand/plugin-conversation-on-mb) plugin, by @sod
+* link will display right below the "Reply by email" if conversation exists, and the plugin is installed
 	
 ## Installing the theme
 	
