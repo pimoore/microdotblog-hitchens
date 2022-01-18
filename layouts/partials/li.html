@@ -15,7 +15,7 @@
 				<p><a href="{{ .Permalink }}">Continue reading →</a></p>
 			</div>
 		{{ else if .Truncated }}
-			<p>{{ .Content | safeHTML | truncate 200 }}</p>
+			{{ .Content | truncate 200 }}
 			<div class="continue">
 				<p><a href="{{ .Permalink }}">Continue reading →</a></p>
 			</div>
