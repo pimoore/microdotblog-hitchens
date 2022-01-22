@@ -6,10 +6,6 @@
 				{{ range .Site.Menus.main }}
 					<li><a class="main-nav-link" href="{{ .URL }}">{{ .Name }}</a></li>
 				{{ end }}
-				{{ if .Site.Params.onthisday }}
-					<li><a class="main-nav-link" href="{{ "on-this-day" | absURL }}">On This Day</a></li>
-				{{ end }}
-				<li><a class="main-nav-link" href="{{ "feed.xml" | absURL }}">RSS</a></li>
 			</ul>
 		</nav>
 	</div>

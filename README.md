@@ -109,9 +109,10 @@
 
 * these are controlled by an inline SVG coded within the CSS elements themselves
 * variables (and hex colour values) unfortunately don't work inside the CSS code for these, so the colour needs to be manually changed to the rgb version of whatever --body-text and --article-text colour you're using.
-* there are _two_ dividers coded in the CSS:
+* there are _three_ dividers coded in the CSS:
 	- .home .divided::after -- this controls the dividers on the index page
 	- .post .divided::after, .archives-page .divided::after, .content-page .divided::after -- this controls the dividers within the articles, archive, and other single content pages
+	- .footnotes::before -- this controls the dividers that separate footnotes (if present)
 * here's an example of the divider code showing where to customize the colours:
 
 .home .divided::after
@@ -145,9 +146,88 @@
 	- Post Stats, by @amit -- centered info on page, and added extra spacing at top and bottom, also changed font and border colors to use --article-text
 	
 ## On This Day support
-* based on the plugin by @cleverdevil
-* requires setting up a new custom "On This Day" page and setting it to display in your navigation, then inserting code into the page content
-	
+* based on the plugin by @cleverdevil, with custom code added to work and style properly with Hitchens
+* requires setting up a new custom "On This Day" page and setting it to display in your navigation, then inserting the following code into the page content:
+
+```
+<div id="on-this-day">
+  <div class="center">Loading...</div>
+</div>
+
+<script>
+var container = document.getElementById('on-this-day');
+
+function renderPost(post) {
+    var postEl = document.createElement('article');
+    postEl.className = 'post h-entry';
+    container.appendChild(postEl);
+    
+    if (post['properties']['name'] != null) {
+        var dividedEl = document.createElement('div');
+        dividedEl.className = 'divided';
+        postEl.appendChild(dividedEl);
+        var titleEl = document.createElement('h1');
+        titleEl.className = 'content-title';
+        titleEl.innerText = post['properties']['name'][0];
+        dividedEl.appendChild(titleEl);
+    }
+
+    var contentEl = document.createElement('div');
+    contentEl.className = 'post-content e-content';
+    contentEl.innerHTML = post['properties']['content'][0]['html'];
+    postEl.appendChild(contentEl);
+
+    var postmetaEl = document.createElement('div');
+    postmetaEl.className = 'post-meta';
+    contentEl.appendChild(postmetaEl);    
+
+    var postdateEl = document.createElement('div');
+    postdateEl.className = 'article-post-date';
+    postmetaEl.appendChild(postdateEl);
+
+    var permalinkEl = document.createElement('a');
+    permalinkEl.className = 'permalink u-url';
+    permalinkEl.href = post['properties']['url'][0];
+    postdateEl.appendChild(permalinkEl);
+
+    var publishedEl = document.createElement('time');
+    publishedEl.className = 'dt-published';
+    publishedEl.datetime = post['properties']['published'][0];
+
+    var published = post['properties']['published'][0];
+    published = new Date(published.slice(0,19).replace(' ', 'T'));
+
+    publishedEl.innerText = published.toDateString();
+    permalinkEl.appendChild(publishedEl);
+}
+
+function renderNoContent() {
+    var noPostsEl = document.createElement('div');
+	noPostsEl.className = 'center';
+    noPostsEl.innerText = 'No posts found for this day. Check back tomorrow!';
+    container.appendChild(noPostsEl);
+}
+
+var xhr = new XMLHttpRequest();
+xhr.responseType = "json";
+xhr.open('GET', "https://micromemories.cleverdevil.io/posts?tz=America/Toronto", true);
+xhr.send();
+
+xhr.onreadystatechange = function(e) {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        container.innerHTML = '';
+        if (xhr.response.length == 0) {
+            renderNoContent();
+        } else {
+            xhr.response.forEach(function(post) {
+                renderPost(post);
+            });
+        }
+    }
+}
+</script>
+```
+
 ## Installing the theme
 	
 _Hitchens_ is available as a full plugin on Micro.blog.  Before installing _Hitchens_ be sure to remove any custom CSS, other theme plugins, and set your template to blank.  Then save the changes, after which you can install the plugin for this theme.  If things aren't working or displaying properly, you may have to remove **all plugins** first, save the changes and install _Hitchens_, then add back the other plugins.  Once the theme is successfully installed, you can configure the subtitle and mailto parameters as explained below:
