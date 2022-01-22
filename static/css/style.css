@@ -546,8 +546,11 @@ p.dropcap:first-letter {
 
 .post dl,
 .post ul,
-.post ol {
-	margin: 1.5em;
+.post ol,
+.content-page dl,
+.content-page ul,
+.content-page ol {
+	margin: 1em;
 }
 
 .post li {
