@@ -162,6 +162,10 @@ figcaption {
 
 /* Navigation */
 
+#main-nav.site-navigation a.main-nav-link {
+	color: var(--body-text);
+}
+
 #main-nav a.main-nav-link, .archive_categories a:link, .tag-cloud li {
 	margin: .5rem .5rem;
 }
@@ -336,26 +340,10 @@ figcaption {
 /* home element styling */
 
 .home {
-	/*max-width: 24em;*/
 	max-width: 60em
 	margin: auto;
-	padding: 1em 1em;
+	padding: 1em 0em;
 }
-
-/*.home li {
-	list-style: none;
-	text-decoration: none;
-	background: none;
-	padding: 1em 0;
-}
-
-.home li a {
-	text-decoration: none;
-}
-
-.home li p {
-	margin: 0;
-}*/
 
 .home .content-title {
 	padding: 2em 1em 1em 1em;
@@ -501,7 +489,7 @@ a:link::-moz-selection {
 	color: var(--excerpt-text) !important;
 	padding: 0 1em;
 	margin-top: 2em;
-	/*border: 1px solid var(--article-text);*/
+	border: 1px solid var(--article-text);
 	box-shadow: 0 0 10px 0 darkgray;
 }
 
@@ -801,6 +789,9 @@ pre > code {
 	.microblog_fullname {
 		top: -45px;
 		padding-left: 5rem;
+	}
+	.excerpt {
+		max-width: 18rem;
 	}
 }
 

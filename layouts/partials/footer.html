@@ -9,7 +9,7 @@
 						{{ if templates.Exists "partials/surprise-me-head.html" }}
 							<li><a class="main-nav-link" href="{{ "surprise-me" | absURL }}">Surprise Me!</a></li>
 						{{ end }}
-						<li><a class="main-nav-link" rel="me" href="https://micro.blog/[USERNAME]">Micro.blog</a></li>
+						<li><a class="main-nav-link" rel="me" href="https://micro.blog/{{ .Site.Author.username }}">Micro.blog</a></li>
 					</ul>
 					© {{ now.Format "2006"}} {{ or .Site.Author.name .Site.Title }}
 					<br />
