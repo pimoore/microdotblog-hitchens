@@ -29,10 +29,8 @@
 		</div>
 	{{ end }}
 	<div class="email-reply">
-		{{ if .Title }}
-			<a class="reply" href="mailto:{{ .Site.Params.mailto }}?subject=Reply%20to%20{{ .Title }}">Reply by email</a>
-		{{ else }}
-			<a class="reply" href="mailto:{{ .Site.Params.mailto }}?subject=Reply%20to%20{{ .Permalink | safeURL }}">Reply by email</a>
+		{{ if templates.Exists "partials/reply-by-email.html" }}
+  			<p>{{ partial "reply-by-email.html" . }}</p>
 		{{ end }}
 	</div>
 	<div class="conversation-link">
