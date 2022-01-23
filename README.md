@@ -227,6 +227,7 @@ xhr.onreadystatechange = function(e) {
 }
 </script>
 ```
+* **be sure to change the timezone setting to the correct one for you**
 
 ## Installing the theme
 	
