@@ -830,11 +830,19 @@ pre > code {
 	float: left;
 	width: 25%;
 	display: flex;
+	padding-right: 1em;
 	}
 	.microblog_text {
 		display: flex;
 	}
+	.microblog_text p {
+	margin: 0px 0px 1em;
+	} 
 	.microblog_fullname {
-		padding-left: 1rem !important;
+	padding-top: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 0 !important;
+	position: absolute;
 	} 
 }
