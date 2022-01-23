@@ -834,6 +834,7 @@ pre > code {
 	}
 	.microblog_text {
 		display: flex;
+		flex-wrap: wrap;
 	}
 	.microblog_text p {
 	margin: 0px 0px 1em;
