@@ -427,7 +427,9 @@ blockquote.epigraph {
 .content-page a:link,
 .post a:visited,
 .archives-page a:visited,
-.content-page a:visited {
+.content-page a:visited,
+.microblog_post a:link,
+.microblog_post a:visited {
 	color: var(--article-text);
 }
 
@@ -720,6 +722,10 @@ table.post-stats-tbl:last-of-type {
 	padding: 20px;
 	margin-bottom: 3rem;
 	box-shadow: 12px 18px 24px var(--post-shadow);
+}
+
+.microblog_post a {
+	color: var(--article-text);
 }
 
 img.microblog_avatar {
