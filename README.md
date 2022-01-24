@@ -242,7 +242,7 @@ _Hitchens_ includes a configurable subtitle, as well as site description.  Once 
 
 ### Index
 
-![Index top](images/index-top.jpeg)
+![Index top](images/screenshot.png)
 ![Index post](images/index-post.jpeg)
 ![Index bottom](images/index-bottom.jpeg)
 
