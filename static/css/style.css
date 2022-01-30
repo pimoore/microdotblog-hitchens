@@ -160,6 +160,15 @@ figcaption {
 	opacity: .7;
 }
 
+/* embedded video and audio sizing */
+
+video, audio {
+	display: flex;
+	height: auto;
+	max-width: 100%;
+	margin: 2em auto;
+}
+
 /* Navigation */
 
 #main-nav.site-navigation a.main-nav-link {
@@ -693,6 +702,20 @@ table.post-stats-tbl:last-of-type {
 
 .post-stats-tbl td, .post-stats-tbl th {
 	border-bottom: 1px solid var(--article-text) !important;
+}
+
+.post-stats-hd {
+	text-decoration: none !important;
+}
+
+.categorycloud-item sup {
+	padding: 0 .3em;
+	font-weight: bold;
+}
+
+a.categorycloud-item {
+	margin-right: 1em;
+	text-decoration: none;
 } 
 
 /* Microblog conversation styling */
