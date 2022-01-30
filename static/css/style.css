@@ -826,10 +826,6 @@ pre > code {
 	blockquote > * {
 		padding: 0 1.1em;
 	}
-	.microblog_fullname {
-		top: -45px;
-		padding-left: 5rem;
-	}
 	.excerpt {
 		max-width: 18rem;
 	}
@@ -863,24 +859,4 @@ pre > code {
 	padding: .35em 0px;
 	margin-left: auto;
 	}
-	.microblog_user {
-	float: left;
-	width: 25%;
-	display: flex;
-	padding-right: 1em;
-	}
-	.microblog_text {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	.microblog_text p {
-	margin: 0px 0px 1em;
-	} 
-	.microblog_fullname {
-	padding-top: 70px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 0 !important;
-	position: absolute;
-	} 
 }
