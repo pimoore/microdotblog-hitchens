@@ -8,14 +8,13 @@
 	{{ partial "search.html" . }}
 	<h1 class="content-title">Categories</h1>
 	<section id="main" class="outer">
-		{{ $list := ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+		{{ $list := $.Site.Taxonomies.categories }}
 		{{ if gt (len $list) 0 }}
-			<div class="archive_categories">
-				{{ range $list }}
-					<p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
-				{{ end }}
-			</div>
-		{{ end }}
+		<div class="archive_categories">
+			{{ range $list }}
+				<p><a href=""{{ .Permalink }}">{{ .Title }}</a></p>
+			{{ end }}
+		</div>
 		<h1 class="content-title divided">All Posts</h1>
 		<div class="archive_posts">
 			{{ $list := (where .Site.Pages "Type" "post") }}
