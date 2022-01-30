@@ -8,11 +8,9 @@
 	{{ partial "search.html" . }}
 	<h1 class="content-title">Categories</h1>
 	<section id="main" class="outer">
-		{{ $list := $.Site.Taxonomies.categories }}
-		{{ if gt (len $list) 0 }}
 		<div class="archive_categories">
-			{{ range $list }}
-				<p><a href=""{{ .Permalink }}">{{ .Title }}</a></p>
+			{{ range $name, $taxonomy := $.Site.Taxonomies.categories }}
+				<p><a href="{{ "/categories/" | relURL }}{{ $name | urlize }}"> {{ $name }}</a></p>
 			{{ end }}
 		</div>
 		<h1 class="content-title divided">All Posts</h1>
