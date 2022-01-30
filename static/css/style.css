@@ -726,7 +726,11 @@ table.post-stats-tbl:last-of-type {
 a.categorycloud-item {
 	margin-right: 1em;
 	text-decoration: none;
-} 
+}
+
+.categorycloud {
+	margin-bottom: 3em;
+}
 
 /* Microblog conversation styling */
 
