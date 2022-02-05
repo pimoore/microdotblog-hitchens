@@ -1,5 +1,5 @@
 {
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"title": "Hitchens theme",
 	"description": "Changes your blog to use the Hitchens theme. Set the built-in design to Blank.",
 	"fields": [
@@ -12,6 +12,11 @@
 			"field": "params.description",
 			"label": "Description",
 			"placeholder": "Enter your description here"
-		}
+		},
+    {
+      "field": "params.daygroup",
+      "label": "Group posts by day",
+      "type": "boolean"
+    }
 	]
 }

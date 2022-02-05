@@ -10,10 +10,26 @@
       Recent Posts
   	</h1>
 	<div class="content list h-feed">
-		{{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
-		{{ range $paginator.Pages }}
-			{{ partial "li.html" . }}
-		{{ end }}
+    {{ if .Site.Params.daygroup }}
+      {{ $posts := where .Site.Pages "Type" "post" }}
+      {{ $grouped := $posts.GroupByDate "2006-01-02" }}
+      {{ $paginated := (.Paginate ($grouped)) }}
+      {{ range $paginated.PageGroups }}
+        {{ $thedate :=(time .Key) }}
+         <div class="day">
+           <span class="dateheader">
+             {{ $thedate.Format "January 2, 2006" }}
+           </span>
+           {{ range .Pages.Reverse }}
+		    	   {{ partial "li.html" . }}
+           {{ end }}
+      {{ end }}
+    {{ else }}
+		  {{ $paginator := .Paginate (where .Site.Pages "Type" "post") }}
+		  {{ range $paginator.Pages }}
+		  	{{ partial "li.html" . }}
+		  {{ end }}
+    {{ end }}
 		<!--{{ partial "pagination.html" . }}-->
 	</div>
 	<div class="archive">
